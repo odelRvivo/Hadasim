@@ -1,0 +1,18 @@
+section{
+    padding-top: 20px;
+    width: 100%;
+    box-shadow: inset -6px 22px 18px -11px rgb(204, 219, 232);
+  }
+  button{
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 850px;
+    justify-content: center;
+    color: white;
+    background-color: #0d47a1;
+  border-radius: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: 20px;
+    text-align: center;
+}

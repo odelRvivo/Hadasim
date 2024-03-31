@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AngularProjectYaelNagar</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    
+   a=[0,0,0,0]
+    window.onload = function () {
+
+    const xhr1 = new XMLHttpRequest();
+
+     xhr1.open("GET", "http://127.0.0.1:5000/getVaccinationbynum/1");
+     xhr1.send();
+    xhr1.responseType = "json";
+    xhr1.onload = () => {
+    if (xhr1.readyState == 4 && xhr1.status == 200) {
+    console.log(xhr1.response);
+    console.log(  xhr1.response['length'])
+    a[0]= xhr1.response['length']
+    } else {
+    console.log(`Error: ${xhr1.status}`);
+      }
+     };
+
+     const xhr2 = new XMLHttpRequest();
+     xhr2.open("GET", "http://127.0.0.1:5000/getVaccinationbynum/2");
+     xhr2.send();
+    xhr2.responseType = "json";
+    xhr2.onload = () => {
+    if (xhr2.readyState == 4 && xhr2.status == 200) {
+    console.log(xhr2.response);
+    console.log(  xhr2.response['length'])
+    a[1]= xhr2.response['length']
+    } else {
+    console.log(`Error: ${xhr2.status}`);
+      }
+     };
+
+     const xhr3 = new XMLHttpRequest();
+     xhr3.open("GET", "http://127.0.0.1:5000/getVaccinationbynum/3");
+     xhr3.send();
+    xhr3.responseType = "json";
+    xhr3.onload = () => {
+    if (xhr3.readyState == 4 && xhr3.status == 200) {
+    console.log(xhr3.response);
+    console.log(  xhr3.response['length'])
+    a[2]= xhr3.response['length']
+    } else {
+    console.log(`Error: ${xhr3.status}`);
+      }
+     };
+
+     const xhr4 = new XMLHttpRequest();
+     xhr4.open("GET", "http://127.0.0.1:5000/getVaccinationbynum/4");
+     xhr4.send();
+    xhr4.responseType = "json";
+    xhr4.onload = () => {
+    if (xhr4.readyState == 4 && xhr4.status == 200) {
+    console.log(xhr4.response);
+    console.log(  xhr4.response['length'])
+    a[3]= xhr4.response['length']
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        exportEnabled: true,
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        title:{
+          text: "כמות המתחסנים בכל ארבעת חיסוני הקורונה"
+        },
+        data: [{
+          type: "column", //change type to bar, line, area, pie, etc
+          //indexLabel: "{y}", //Shows y value on all Data Points
+          indexLabelFontColor: "#5A5757",
+          indexLabelPlacement: "outside",
+          dataPoints: [
+            { x: 1, y: a[0] },
+            { x: 2, y: a[1] },
+            { x: 3, y: a[2] },
+            { x: 4, y: a[3] },
+          ]
+        }]
+      });
+      chart.render();
+
+
+      console.log(a)
+    } else {
+    console.log(`Error: ${xhr4.status}`);
+      }
+     };
+
+    
+    
+
+
+      
+      }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="./assets/canvasjs.min.js"></script>
+
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
